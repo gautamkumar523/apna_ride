@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ride With Us — Bike Taxi, Auto, Cabs &amp; Parcel | Apna Ride</title>
+<meta name="description" content="Compare Apna Ride's bike taxi, auto, cab and parcel delivery services — fares, features and coverage.">
+<link rel="icon" type="image/png" href="images/apna-ride-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><img src="images/apna-ride-icon.png" alt="Apna Ride logo"></span>
+      Apna Ride
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="rides.html" class="active">Ride With Us</a></li>
+      <li><a href="captain.html">Become a Captain</a></li>
+      <li><a href="safety.html">Safety</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="captain.html" class="btn btn-outline btn-sm">Drive with us</a>
+      <a href="index.html#download" class="btn btn-primary btn-sm">Get the App</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+  </nav>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Ride With Us</span>
+      <h1>Four ways to get there, one fare you can see coming.</h1>
+      <p class="lede">Whichever way you're travelling — solo across town, with luggage to the station, or sending a parcel instead of going yourself — Apna Ride has a vehicle already close by.</p>
+
+      <div class="route-summary" id="route-summary">
+        <div class="rs-points">
+          <span class="rs-point"><span class="rs-dot" style="background:#0E9D74;"></span><span id="rs-pickup">—</span></span>
+          <span class="rs-arrow">→</span>
+          <span class="rs-point"><span class="rs-dot" style="background:#FF5A3C;"></span><span id="rs-drop">—</span></span>
+        </div>
+        <p class="vo-dist-note" id="rs-dist-note" style="margin:0 0 14px;"></p>
+        <div class="vehicle-options" id="rs-vehicle-options">
+          <div class="vehicle-option" data-type="bike">
+            <span class="vo-icon">🏍️</span>
+            <span class="vo-name">Bike</span>
+            <span class="vo-rate">₹11/km</span>
+            <span class="vo-fare" data-fare-el>—</span>
+          </div>
+          <div class="vehicle-option" data-type="auto">
+            <span class="vo-icon">🛺</span>
+            <span class="vo-name">Auto</span>
+            <span class="vo-rate">₹17/km</span>
+            <span class="vo-fare" data-fare-el>—</span>
+          </div>
+          <div class="vehicle-option" data-type="cab">
+            <span class="vo-icon">🚗</span>
+            <span class="vo-name">Cab</span>
+            <span class="vo-rate">₹26/km</span>
+            <span class="vo-fare" data-fare-el>—</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIKE -->
+  <section id="bike" style="padding-top:0;">
+    <div class="container split">
+      <div>
+        <div class="icon-wrap" style="background:#FFF3D2; width:96px; height:96px; border-radius:24px; margin-bottom:20px; font-size:2.6rem; box-shadow:0 6px 18px rgba(0,0,0,0.08);">🏍️</div>
+        <h2>Bike Taxi</h2>
+        <p>The fastest way to move through dense traffic. A helmet, a seat, and a captain who knows the shortcuts — perfect for solo commutes under 12km.</p>
+        <ul class="check-list">
+          <li><span class="tick">✓</span> Fares starting at ₹19, no surge on regular commute hours</li>
+          <li><span class="tick">✓</span> Sanitised helmet provided at pickup</li>
+          <li><span class="tick">✓</span> Average pickup time under 5 minutes in serviceable zones</li>
+        </ul>
+        <a href="index.html" class="btn btn-primary" style="margin-top:12px;">Book a Bike Taxi</a>
+      </div>
+      <div class="calc-card">
+        <span class="meter-label">Sample fare · 6.2 km</span>
+        <div class="calc-row"><span>Base fare</span><b>₹15</b></div>
+        <div class="calc-row"><span>Distance charge</span><b>₹28</b></div>
+        <div class="calc-row"><span>Platform fee</span><b>₹6</b></div>
+        <div class="calc-total"><span>Total</span><b>₹49</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUTO -->
+  <section id="auto" class="band-yellow">
+    <div class="container split">
+      <div class="calc-card" style="order:2;">
+        <span class="meter-label">Sample fare · 6.2 km</span>
+        <div class="calc-row"><span>Base fare</span><b>₹25</b></div>
+        <div class="calc-row"><span>Distance charge</span><b>₹45</b></div>
+        <div class="calc-row"><span>Platform fee</span><b>₹6</b></div>
+        <div class="calc-total"><span>Total</span><b>₹76</b></div>
+      </div>
+      <div style="order:1;">
+        <div class="icon-wrap" style="background:rgba(0,0,0,0.06); width:96px; height:96px; border-radius:24px; margin-bottom:20px; font-size:2.6rem; box-shadow:0 6px 18px rgba(0,0,0,0.08);">🛺</div>
+        <h2>Auto</h2>
+        <p>Room for up to three people and a bag of shopping. The everyday ride for the everyday errand — school runs, market trips, or getting to the station.</p>
+        <ul class="check-list">
+          <li><span class="tick">✓</span> Fares starting at ₹35</li>
+          <li><span class="tick">✓</span> Fits 3 adults comfortably</li>
+          <li><span class="tick">✓</span> Covered seating, safe from sun and rain</li>
+        </ul>
+        <a href="index.html" class="btn btn-dark" style="margin-top:12px;">Book an Auto</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAB -->
+  <section id="cab">
+    <div class="container split">
+      <div>
+        <div class="icon-wrap" style="background:#E4F3EC; width:96px; height:96px; border-radius:24px; margin-bottom:20px; font-size:2.6rem; box-shadow:0 6px 18px rgba(0,0,0,0.08);">🚗</div>
+        <h2>Cab</h2>
+        <p>Air-conditioned comfort for longer trips, airport runs, or when the weather isn't cooperating. Fits up to four passengers plus luggage.</p>
+        <ul class="check-list">
+          <li><span class="tick">✓</span> Fares starting at ₹89</li>
+          <li><span class="tick">✓</span> AC in every cab, year-round</li>
+          <li><span class="tick">✓</span> Boot space for 2 medium suitcases</li>
+        </ul>
+        <a href="index.html" class="btn btn-primary" style="margin-top:12px;">Book a Cab</a>
+      </div>
+      <div class="calc-card">
+        <span class="meter-label">Sample fare · 14 km</span>
+        <div class="calc-row"><span>Base fare</span><b>₹49</b></div>
+        <div class="calc-row"><span>Distance charge</span><b>₹126</b></div>
+        <div class="calc-row"><span>Platform fee</span><b>₹8</b></div>
+        <div class="calc-total"><span>Total</span><b>₹183</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARCEL -->
+  <section id="parcel" class="band-dark">
+    <div class="container split">
+      <div class="calc-card" style="background:rgba(255,255,255,0.06); order:2;">
+        <span class="meter-label">Sample fare · 4.8 km · 3kg</span>
+        <div class="calc-row"><span>Base fare</span><b>₹19</b></div>
+        <div class="calc-row"><span>Distance charge</span><b>₹22</b></div>
+        <div class="calc-row"><span>Handling</span><b>₹8</b></div>
+        <div class="calc-total"><span>Total</span><b>₹49</b></div>
+      </div>
+      <div style="order:1;">
+        <div class="icon-wrap" style="background:rgba(255,255,255,0.1); width:96px; height:96px; border-radius:24px; margin-bottom:20px; font-size:2.6rem; box-shadow:0 6px 18px rgba(0,0,0,0.08);">📦</div>
+        <h2>Parcel</h2>
+        <p>Skip the trip yourself — send documents, keys, tiffins or small packages across the city on a captain's bike, tracked door to door.</p>
+        <ul class="check-list">
+          <li><span class="tick">✓</span> Fares starting at ₹29, up to 20kg</li>
+          <li><span class="tick">✓</span> Live tracking shared with sender and receiver</li>
+          <li><span class="tick">✓</span> OTP confirmation on delivery</li>
+        </ul>
+        <a href="index.html" class="btn btn-ghost-yellow" style="margin-top:12px;">Send a Parcel</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON STATS -->
+  <section>
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Coverage</span>
+        <h2>Built for how Indian cities actually move</h2>
+      </div>
+      <div class="stat-strip">
+        <div><b>4</b><span>Bihar districts live</span></div>
+        <div><b>&lt;5 min</b><span>avg. pickup time</span></div>
+        <div><b>₹0</b><span>surge on daily commute slots</span></div>
+        <div><b>₹15/km</b><span>simple, upfront distance rate</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="padding-top:0;">
+    <div class="container" style="max-width:760px;">
+      <div class="section-head">
+        <span class="eyebrow">Good to know</span>
+        <h2>Ride FAQs</h2>
+      </div>
+      <div class="accordion">
+        <div class="accordion-item open">
+          <button class="accordion-q">How is my fare calculated?<span class="plus">+</span></button>
+          <div class="accordion-a"><p>Every fare is a base amount plus a per-kilometre rate for your ride type, shown to you before you confirm — never estimated after the fact.</p></div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-q">Can I pay with cash?<span class="plus">+</span></button>
+          <div class="accordion-a"><p>Yes — pay your captain directly in cash, or use UPI in-app. Both are accepted on every ride type.</p></div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-q">What if I need to cancel?<span class="plus">+</span></button>
+          <div class="accordion-a"><p>Cancel free within 2 minutes of booking. After that, a small cancellation fee applies to cover your captain's time.</p></div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-q">Is bike taxi available for two riders?<span class="plus">+</span></button>
+          <div class="accordion-a"><p>Bike Taxi seats one rider behind the captain for safety. For two people, choose Auto instead.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand" style="margin-bottom:14px;">
+          <span class="brand-mark"><img src="images/apna-ride-icon.png" alt="Apna Ride logo"></span>
+          Apna Ride
+        </div>
+        <p>Affordable bike taxis, autos, cabs &amp; parcel delivery — currently live in Patna, Aurangabad, Motihari &amp; Bettiah districts, with all of India coming soon.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="X / Twitter">𝕏</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="about.html#careers">Careers</a></li>
+          <li><a href="contact.html">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="rides.html#bike">Bike Taxi</a></li>
+          <li><a href="rides.html#auto">Auto</a></li>
+          <li><a href="rides.html#cab">Cabs</a></li>
+          <li><a href="rides.html#parcel">Parcel</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Support</h5>
+        <ul>
+          <li><a href="safety.html">Safety centre</a></li>
+          <li><a href="contact.html">Help centre</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>For Captains</h5>
+        <ul>
+          <li><a href="captain.html">Become a captain</a></li>
+          <li><a href="captain.html#earnings">Earnings calculator</a></li>
+          <li><a href="captain.html#faq">Captain FAQs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Apna Ride Technologies Pvt. Ltd. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+        <a href="admin.html">Admin Console</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/bihar-locations.js"></script>
+<script src="js/location-search.js"></script>
+<script src="js/rider-booking.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

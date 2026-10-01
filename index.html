@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apna Ride — Bike Taxi, Auto &amp; Cab Booking App</title>
+<meta name="description" content="Apna Ride gets you there for less. Book a bike taxi, auto or cab in seconds — upfront fares, verified captains, live tracking.">
+<link rel="icon" type="image/png" href="images/apna-ride-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><img src="images/apna-ride-icon.png" alt="Apna Ride logo"></span>
+      Apna Ride
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="rides.html">Ride With Us</a></li>
+      <li><a href="captain.html">Become a Captain</a></li>
+      <li><a href="safety.html">Safety</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="captain.html" class="btn btn-outline btn-sm">Drive with us</a>
+      <a href="#download" class="btn btn-primary btn-sm">Get the App</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Bike Taxi · Auto · Cabs · Parcel</span>
+        <h1>Wahi ride,<br><span class="accent">apna price.</span></h1>
+        <p class="hero-lede">Apna Ride gets you across town without burning a hole in your pocket. Upfront fares, verified captains, and a bike waiting around the corner in under 5 minutes.</p>
+
+        <form class="ride-form" data-goto="rides.html">
+          <div class="ride-form-row">
+            <span class="ride-form-dot" style="background:#0E9D74"></span>
+            <input type="text" id="pickup-input" class="location-input" autocomplete="off" placeholder="Detecting your location…" required>
+            <span class="auto-badge" id="pickup-auto-badge">GPS</span>
+            <button type="button" class="locate-btn" id="locate-btn" title="Re-detect my exact location" aria-label="Re-detect my exact location">📍</button>
+            <div class="autocomplete-list" id="pickup-list" role="listbox"></div>
+          </div>
+          <div class="ride-form-row">
+            <span class="ride-form-dot" style="background:#FF5A3C"></span>
+            <input type="text" id="drop-input" class="location-input" autocomplete="off" placeholder="Drop — where to?" required>
+            <div class="autocomplete-list" id="drop-list" role="listbox"></div>
+          </div>
+          <div class="vehicle-options" id="vehicle-options">
+            <div class="vehicle-option" data-type="bike">
+              <span class="vo-icon">🏍️</span>
+              <span class="vo-name">Bike</span>
+              <span class="vo-rate">₹9/km</span>
+              <span class="vo-fare" data-fare-el>Select drop</span>
+            </div>
+            <div class="vehicle-option" data-type="auto">
+              <span class="vo-icon">🛺</span>
+              <span class="vo-name">Auto</span>
+              <span class="vo-rate">₹15/km</span>
+              <span class="vo-fare" data-fare-el>Select drop</span>
+            </div>
+            <div class="vehicle-option" data-type="cab">
+              <span class="vo-icon">🚗</span>
+              <span class="vo-name">Cab</span>
+              <span class="vo-rate">₹24/km</span>
+              <span class="vo-fare" data-fare-el>Select drop</span>
+            </div>
+          </div>
+          <p class="vo-dist-note" id="vo-dist-note"></p>
+          <button type="submit" class="btn btn-primary btn-block">Find a ride →</button>
+        </form>
+
+        <div class="hero-stats">
+          <div class="hero-stat"><b>4</b><span>Bihar districts live</span></div>
+          <div class="hero-stat"><b>4.7 ★</b><span>average captain rating</span></div>
+        </div>
+      </div>
+
+      <div class="hero-art">
+        <div class="meter-card">
+          <span class="meter-label">Estimated fare · Bike Taxi</span>
+          <div class="meter-readout" data-target="49">₹49</div>
+          <div class="meter-route">
+            <svg viewBox="0 0 420 160" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 120 C 100 20, 180 140, 260 60 S 380 20, 400 40" fill="none" stroke="#3A3849" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
+              <circle cx="20" cy="120" r="7" fill="#0E9D74"/>
+              <circle cx="400" cy="40" r="7" fill="#FF5A3C"/>
+              <g>
+                <circle cx="150" cy="80" r="11" fill="#FFC634"/>
+                <text x="150" y="84" text-anchor="middle" font-size="12" font-family="Work Sans, sans-serif" font-weight="700" fill="#15141F">🏍</text>
+              </g>
+            </svg>
+          </div>
+          <p style="color:#B9B6C8; font-size:.82rem; margin-top:10px;">No surge drama. The fare you see is the fare you pay.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section style="padding-bottom:0;">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Leading Apna Ride</span>
+        <h2>The people behind the wheel</h2>
+      </div>
+      <div class="leader-grid">
+        <div class="leader-card">
+          <img class="leader-photo" src="images/dipanshu-singh.jpg" alt="Brajesh Kumar Singh, Owner of Apna Ride">
+          <div>
+            <span class="leader-role">Owner of Apna Ride</span>
+            <p class="leader-name">Brajesh Kumar Singh</p>
+            <p class="leader-quote">"Apna Ride was built on one belief — no rider should have to overpay, and no captain should have to underearn. Every city we enter, we bring that promise with us."</p>
+          </div>
+        </div>
+        <div class="leader-card">
+          <img class="leader-photo" src="images/gautam-kumar.jpg" alt="Pooja Singh, CEO of Apna Ride">
+          <div>
+            <span class="leader-role">CEO of Apna Ride</span>
+            <p class="leader-name">Pooja Singh</p>
+            <p class="leader-quote">"Growth means nothing if it doesn't reach the people who need it most. We're not just building an app — we're building trust, one ride at a time, in every district we serve."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section>
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">How it works</span>
+        <h2>Booked in seconds, moving in minutes</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h4>Drop a pin</h4>
+          <p>Tell us where you are and where you're headed — we find captains nearby.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h4>See your fare upfront</h4>
+          <p>No meter guesswork. Your price is locked in before you confirm the ride.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h4>Track your captain</h4>
+          <p>Watch them arrive in real time, share your trip with anyone in one tap.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <h4>Ride, pay, rate</h4>
+          <p>Cash or UPI, your call. Rate the ride and help the community stay honest.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RIDE OPTIONS -->
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Choose your ride</span>
+        <h2>One app, every way to get there</h2>
+      </div>
+      <div class="cards-grid">
+        <div class="ride-card">
+          <div class="icon-wrap" style="background:#FFF3D2;">🏍️</div>
+          <h3>Bike Taxi</h3>
+          <p>Split lanes, skip traffic. The fastest way across a crowded city.</p>
+          <span class="price-tag">From ₹19</span>
+          <ul class="tag-list"><li>Helmet included</li><li>1 rider</li></ul>
+        </div>
+        <div class="ride-card">
+          <div class="icon-wrap" style="background:#FFE9E4;">🛺</div>
+          <h3>Auto</h3>
+          <p>The everyday commute — roomy, metered fair, and easy on luggage.</p>
+          <span class="price-tag">From ₹35</span>
+          <ul class="tag-list"><li>Up to 3 riders</li><li>Luggage ok</li></ul>
+        </div>
+        <div class="ride-card">
+          <div class="icon-wrap" style="background:#E4F3EC;">🚗</div>
+          <h3>Cab</h3>
+          <p>AC comfort for longer trips, airport runs, or when it's pouring outside.</p>
+          <span class="price-tag">From ₹89</span>
+          <ul class="tag-list"><li>Up to 4 riders</li><li>AC</li></ul>
+        </div>
+        <div class="ride-card">
+          <div class="icon-wrap" style="background:#EDE8FB;">📦</div>
+          <h3>Parcel</h3>
+          <p>Send documents or packages across town on a captain's bike, same day.</p>
+          <span class="price-tag">From ₹29</span>
+          <ul class="tag-list"><li>Up to 20kg</li><li>Live tracking</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAFETY BAND -->
+  <section class="band-dark">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow" style="background:rgba(255,255,255,0.1); color:#FFC634;">Built to be trusted</span>
+        <h2>Safety that doesn't stay in the fine print</h2>
+      </div>
+      <div class="safety-grid">
+        <div class="safety-item">
+          <div class="icon-wrap">🆔</div>
+          <div><h4>Verified captains</h4><p>Every captain passes ID and background checks before their first ride.</p></div>
+        </div>
+        <div class="safety-item">
+          <div class="icon-wrap">📍</div>
+          <div><h4>Live trip sharing</h4><p>Share your route and ETA with family in one tap, right from the trip screen.</p></div>
+        </div>
+        <div class="safety-item">
+          <div class="icon-wrap">🚨</div>
+          <div><h4>24/7 SOS button</h4><p>One press connects you to our safety response team and local emergency services.</p></div>
+        </div>
+      </div>
+      <div style="margin-top:32px;"><a href="safety.html" class="btn btn-ghost-yellow">See all safety features →</a></div>
+    </div>
+  </section>
+
+  <!-- SERVICE COVERAGE & DISTRICT HUBS -->
+  <section class="service-coverage-section">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Service Coverage</span>
+        <h2>Live across Bihar. Expanding pan-India soon.</h2>
+        <p class="lede" style="margin: 0 auto; max-width: 640px;">
+          Upfront-priced, on-demand rides connecting district headquarters, busy railway junctions, and rural routes most apps ignore.
+        </p>
+      </div>
+
+      <div class="coverage-grid">
+        <div class="coverage-card">
+          <div class="coverage-top">
+            <span class="coverage-pin">📍</span>
+            <span class="coverage-live-badge"><span class="pulse-dot"></span> Live Now</span>
+          </div>
+          <h3>Patna</h3>
+          <p class="coverage-desc">Capital metro corridor &amp; suburban transit hub</p>
+          <div class="coverage-routes">
+            <span>Danapur</span><span>Kankarbagh</span><span>Boring Rd</span><span>AIIMS</span><span>Patna Sahib</span>
+          </div>
+          <div class="coverage-modes">
+            <span>🏍️ Bike</span><span>🛺 Auto</span><span>🚗 Cab</span><span>📦 Parcel</span>
+          </div>
+        </div>
+
+        <div class="coverage-card">
+          <div class="coverage-top">
+            <span class="coverage-pin">📍</span>
+            <span class="coverage-live-badge"><span class="pulse-dot"></span> Live Now</span>
+          </div>
+          <h3>Aurangabad</h3>
+          <p class="coverage-desc">Grand Trunk Road highway arterial &amp; commercial zone</p>
+          <div class="coverage-routes">
+            <span>Ramesh Chowk</span><span>Daudnagar</span><span>Rafiganj</span><span>Obra</span><span>Deo</span>
+          </div>
+          <div class="coverage-modes">
+            <span>🏍️ Bike</span><span>🛺 Auto</span><span>🚗 Cab</span><span>📦 Parcel</span>
+          </div>
+        </div>
+
+        <div class="coverage-card">
+          <div class="coverage-top">
+            <span class="coverage-pin">📍</span>
+            <span class="coverage-live-badge"><span class="pulse-dot"></span> Live Now</span>
+          </div>
+          <h3>Motihari</h3>
+          <p class="coverage-desc">East Champaran district center &amp; border trade transit</p>
+          <div class="coverage-routes">
+            <span>Chhatauni</span><span>Gandhi Chowk</span><span>Areraj</span><span>Raxaul Route</span><span>Turkaulia</span>
+          </div>
+          <div class="coverage-modes">
+            <span>🏍️ Bike</span><span>🛺 Auto</span><span>🚗 Cab</span><span>📦 Parcel</span>
+          </div>
+        </div>
+
+        <div class="coverage-card">
+          <div class="coverage-top">
+            <span class="coverage-pin">📍</span>
+            <span class="coverage-live-badge"><span class="pulse-dot"></span> Live Now</span>
+          </div>
+          <h3>Bettiah</h3>
+          <p class="coverage-desc">West Champaran cultural, sugar belt &amp; railway connection</p>
+          <div class="coverage-routes">
+            <span>Lal Bazar</span><span>Supriya Cinema</span><span>Chanpatia</span><span>Narkatiaganj</span><span>Majhaulia</span>
+          </div>
+          <div class="coverage-modes">
+            <span>🏍️ Bike</span><span>🛺 Auto</span><span>🚗 Cab</span><span>📦 Parcel</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="expansion-strip">
+        <div class="expansion-icon">🚀</div>
+        <div class="expansion-info">
+          <strong>Pan-India Expansion In Progress</strong>
+          <span>Next launch waves targeting Muzaffarpur, Gaya, Bhagalpur, and Darbhanga. Want Apna Ride in your tehsil or town?</span>
+        </div>
+        <a href="contact.html" class="btn btn-outline btn-sm">Request Your Town →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section>
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Word on the street</span>
+        <h2>What riders are saying</h2>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p>"My office commute used to eat up a third of my salary. Bike Taxi cut it down to almost nothing."</p>
+          <div class="testimonial-who">
+            <div class="avatar" style="background:#FF5A3C;">R</div>
+            <div><b>Chandan Singh</b><span>Raxaul</span></div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p>"I like seeing the fare before I get in. No arguing at the destination, no surprises."</p>
+          <div class="testimonial-who">
+            <div class="avatar" style="background:#0E9D74;">A</div>
+            <div><b>Dipesh Kumar</b><span>Motihari</span></div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p>"Started driving on weekends, now it's covering half my rent. Flexible hours, my own schedule."</p>
+          <div class="testimonial-who">
+            <div class="avatar" style="background:#FFC634; color:#15141F;">D</div>
+            <div><b>Kundan Kumar</b><span> Patna ....(Captain since 2023)</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="download">
+    <div class="container">
+      <div class="cta-banner">
+        <div>
+          <h2>Your next ride is a tap away</h2>
+          <p>Download Apna Ride and get ₹50 off your first three trips.</p>
+          <div class="badge-row">
+            <div class="store-badge"><span>▶</span><div><small>Get it on</small><strong>Google Play</strong></div></div>
+            <div class="store-badge"><span></span><div><small>Download on the</small><strong>App Store</strong></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand" style="margin-bottom:14px;">
+          <span class="brand-mark"><img src="images/apna-ride-icon.png" alt="Apna Ride logo"></span>
+          Apna Ride
+        </div>
+        <p>Affordable bike taxis, autos, cabs &amp; parcel delivery — currently live in Patna, Aurangabad, Motihari &amp; Bettiah districts, with all of India coming soon.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="X / Twitter">𝕏</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="about.html#careers">Careers</a></li>
+          <li><a href="contact.html">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="rides.html#bike">Bike Taxi</a></li>
+          <li><a href="rides.html#auto">Auto</a></li>
+          <li><a href="rides.html#cab">Cabs</a></li>
+          <li><a href="rides.html#parcel">Parcel</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Support</h5>
+        <ul>
+          <li><a href="safety.html">Safety centre</a></li>
+          <li><a href="contact.html">Help centre</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>For Captains</h5>
+        <ul>
+          <li><a href="captain.html">Become a captain</a></li>
+          <li><a href="captain.html#earnings">Earnings calculator</a></li>
+          <li><a href="captain.html#faq">Captain FAQs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Apna Ride Technologies Pvt. Ltd. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+        <a href="admin.html">Admin Console</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/bihar-locations.js"></script>
+<script src="js/location-search.js"></script>
+<script src="js/script.js"></script>
+<script src="js/rider-booking.js"></script>
+</body>
+</html>

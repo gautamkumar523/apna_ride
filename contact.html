@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — Apna Ride</title>
+<meta name="description" content="Get in touch with Apna Ride's support, press or business teams.">
+<link rel="icon" type="image/png" href="images/apna-ride-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><img src="images/apna-ride-icon.png" alt="Apna Ride logo"></span>
+      Apna Ride
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="rides.html">Ride With Us</a></li>
+      <li><a href="captain.html">Become a Captain</a></li>
+      <li><a href="safety.html">Safety</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="captain.html" class="btn btn-outline btn-sm">Drive with us</a>
+      <a href="index.html#download" class="btn btn-primary btn-sm">Get the App</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+  </nav>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Get in touch</span>
+      <h1>We're happy to help — pick the right team below.</h1>
+      <p class="lede">For in-app issues, use the Help section of the app for the fastest response. For everything else, reach out here.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="container split">
+      <div>
+        <div class="cards-grid" style="grid-template-columns:1fr 1fr;">
+          <div class="ride-card">
+            <div class="icon-wrap" style="background:#FFF3D2;">🎧</div>
+            <h3>Rider support</h3>
+            <p>Trip issues, refunds, fare disputes.</p>
+            <span class="price-tag">support@apnaride.example</span>
+          </div>
+          <div class="ride-card">
+            <div class="icon-wrap" style="background:#FFE9E4;">🏍️</div>
+            <h3>Captain support</h3>
+            <p>Onboarding, payouts, app issues.</p>
+            <span class="price-tag">captains@apnaride.example</span>
+          </div>
+          <div class="ride-card">
+            <div class="icon-wrap" style="background:#E4F3EC;">📰</div>
+            <h3>Press &amp; media</h3>
+            <p>Interview requests, media kits.</p>
+            <span class="price-tag">press@apnaride.example</span>
+          </div>
+          <div class="ride-card">
+            <div class="icon-wrap" style="background:#EDE8FB;">🤝</div>
+            <h3>Business &amp; partnerships</h3>
+            <p>Fleet, city and corporate enquiries.</p>
+            <span class="price-tag">partners@apnaride.example</span>
+          </div>
+        </div>
+        <div style="margin-top:32px;">
+          <h4>Head office</h4>
+          <p>Apna Ride Technologies Pvt. Ltd.<br>4th Floor, Ashiana Tower, Patna, Bihar 800001</p>
+          <h4 style="margin-top:20px;">Support hours</h4>
+          <p>24/7 for safety and SOS matters. General queries: 9 AM – 9 PM, all days.</p>
+        </div>
+      </div>
+
+      <form class="form-card" id="contact-page-form">
+        <h3 style="margin-bottom:6px;">Send us a message</h3>
+        <p style="margin-bottom:20px; color:var(--muted); font-size:.9rem;">We typically reply within one business day.</p>
+        <div class="form-field">
+          <label for="name">Name</label>
+          <input type="text" id="name" required placeholder="Your full name">
+        </div>
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" required placeholder="you@example.com">
+        </div>
+        <div class="form-field">
+          <label for="topic">Topic</label>
+          <select id="topic">
+            <option>Rider support</option>
+            <option>Captain support</option>
+            <option>Press &amp; media</option>
+            <option>Business &amp; partnerships</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea id="message" rows="4" required placeholder="How can we help?"></textarea>
+        </div>
+        <button type="submit" id="contact-submit-btn" class="btn btn-primary btn-block">Send message</button>
+        <p id="contact-feedback" style="text-align:center; margin-top:14px; font-size:.85rem;"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand" style="margin-bottom:14px;">
+          <span class="brand-mark"><img src="images/apna-ride-icon.png" alt="Apna Ride logo"></span>
+          Apna Ride
+        </div>
+        <p>Affordable bike taxis, autos, cabs &amp; parcel delivery — currently live in Patna, Aurangabad, Motihari &amp; Bettiah districts, with all of India coming soon.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="X / Twitter">𝕏</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="about.html#careers">Careers</a></li>
+          <li><a href="contact.html">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="rides.html#bike">Bike Taxi</a></li>
+          <li><a href="rides.html#auto">Auto</a></li>
+          <li><a href="rides.html#cab">Cabs</a></li>
+          <li><a href="rides.html#parcel">Parcel</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Support</h5>
+        <ul>
+          <li><a href="safety.html">Safety centre</a></li>
+          <li><a href="contact.html">Help centre</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>For Captains</h5>
+        <ul>
+          <li><a href="captain.html">Become a captain</a></li>
+          <li><a href="captain.html#earnings">Earnings calculator</a></li>
+          <li><a href="captain.html#faq">Captain FAQs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Apna Ride Technologies Pvt. Ltd. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+        <a href="admin.html">Admin Console</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/bihar-locations.js"></script>
+<script src="js/location-search.js"></script>
+<script src="js/rider-booking.js"></script>
+<script src="js/script.js"></script>
+<script>
+  document.getElementById("contact-page-form")?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById("contact-submit-btn");
+    const feedback = document.getElementById("contact-feedback");
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const topic = document.getElementById("topic").value;
+    const message = document.getElementById("message").value.trim();
+
+    btn.disabled = true;
+    btn.textContent = "Sending...";
+    feedback.textContent = "";
+
+    try {
+      const res = await fetch("/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, topic, message })
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || "Failed to submit message");
+
+      feedback.style.color = "var(--green)";
+      feedback.textContent = data.message || "Message sent successfully!";
+      btn.textContent = "Message Sent ✓";
+      document.getElementById("contact-page-form").reset();
+    } catch (err) {
+      feedback.style.color = "var(--vermilion)";
+      feedback.textContent = err.message;
+      btn.disabled = false;
+      btn.textContent = "Send message";
+    }
+  });
+</script>
+</body>
+</html>

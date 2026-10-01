@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Become a Captain — Drive with Apna Ride</title>
+<meta name="description" content="Drive with Apna Ride. Set your own hours, keep more of every fare, and get paid weekly.">
+<link rel="icon" type="image/png" href="images/apna-ride-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><img src="images/apna-ride-icon.png" alt="Apna Ride logo"></span>
+      Apna Ride
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="rides.html">Ride With Us</a></li>
+      <li><a href="captain.html" class="active">Become a Captain</a></li>
+      <li><a href="safety.html">Safety</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="captain.html#signup" class="btn btn-outline btn-sm">Drive with us</a>
+      <a href="index.html#download" class="btn btn-primary btn-sm">Get the App</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+  </nav>
+</header>
+
+<main>
+
+  <section class="page-hero band-dark">
+    <div class="container split">
+      <div>
+        <span class="eyebrow" style="background:rgba(255,255,255,0.1); color:#FFC634;">For Captains</span>
+        <h1 style="color:#fff;">Your bike. Your hours. Your earnings.</h1>
+        <p class="lede" style="color:#C9C6D6;">Join the captains already earning with Apna Ride across Patna, Aurangabad, Motihari &amp; Bettiah districts. No fixed shifts, weekly payouts, and a support team that actually picks up.</p>
+        <a href="#signup" class="btn btn-ghost-yellow">Sign up to drive</a>
+      </div>
+      <div class="calc-card" id="earnings" style="background:rgba(255,255,255,0.06);">
+        <span class="meter-label">Earnings calculator</span>
+        <div class="form-field" style="margin-top:16px;">
+          <label style="color:#fff;">City tier</label>
+          <select id="calc-city" style="background:rgba(255,255,255,0.08); color:#fff; border-color:rgba(255,255,255,0.2);">
+            <option value="tier1">Patna district</option>
+            <option value="tier2">Aurangabad / Motihari / Bettiah districts</option>
+            <option value="tier3">Smaller towns &amp; rural blocks</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label style="color:#fff;">Hours online per day: <span id="calc-hours-label">8</span>h</label>
+          <input type="range" id="calc-hours" min="2" max="14" value="8" style="width:100%;">
+        </div>
+        <div class="calc-row"><span>Estimated daily earning</span><b id="calc-daily">₹760</b></div>
+        <div class="calc-total"><span>Estimated monthly (26 days)</span><b id="calc-output">₹19,760</b></div>
+        <p style="color:#8D89A0; font-size:.78rem; margin-top:14px; margin-bottom:0;">Illustrative estimate only — actual earnings vary with demand, city and hours online.</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById('calc-hours').addEventListener('input', function(){
+      document.getElementById('calc-hours-label').textContent = this.value;
+    });
+  </script>
+
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Why drive with us</span>
+        <h2>Everything a captain needs, nothing they don't</h2>
+      </div>
+      <div class="cards-grid">
+        <div class="ride-card">
+          <div class="icon-wrap" style="background:#FFF3D2;">💰</div>
+          <h3>Weekly payouts</h3>
+          <p>Earnings settle to your bank account every week, no chasing required.</p>
+        </div>
+        <div class="ride-card">
+          <div class="icon-wrap" style="background:#FFE9E4;">🕒</div>
+          <h3>Flexible hours</h3>
+          <p>Go online whenever suits you — an hour before college or a full day's shift.</p>
+        </div>
+        <div class="ride-card">
+          <div class="icon-wrap" style="background:#E4F3EC;">🛡️</div>
+          <h3>Ride insurance</h3>
+          <p>Every trip is covered by accident insurance for you and your passenger.</p>
+        </div>
+        <div class="ride-card">
+          <div class="icon-wrap" style="background:#EDE8FB;">📞</div>
+          <h3>Captain support</h3>
+          <p>A dedicated helpline for captains, open every day, in your language.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band-yellow">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow" style="background:rgba(0,0,0,0.08);">Join in 4 steps</span>
+        <h2>Get on the road this week</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step-num">01</div><h4>Submit documents</h4><p>Driving licence, RC and ID — uploaded from your phone in minutes.</p></div>
+        <div class="step"><div class="step-num">02</div><h4>Verification</h4><p>Our team verifies your documents, usually within 24–48 hours.</p></div>
+        <div class="step"><div class="step-num">03</div><h4>Orientation</h4><p>A short in-person or video session on the app, safety and payouts.</p></div>
+        <div class="step"><div class="step-num">04</div><h4>Go online</h4><p>Flip the switch in the captain app and start accepting rides.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNUP FORM -->
+  <section id="signup">
+    <div class="container split">
+      <div>
+        <span class="eyebrow">Sign up</span>
+        <h2>Start your captain application</h2>
+        <p>Fill in your details and our onboarding team will call you to schedule document verification.</p>
+        <ul class="check-list">
+          <li><span class="tick">✓</span> Minimum age 21, valid driving licence</li>
+          <li><span class="tick">✓</span> Vehicle registered in the city you'll operate in</li>
+          <li><span class="tick">✓</span> Smartphone with an active data connection</li>
+        </ul>
+      </div>
+      <div id="captain-portal-root" style="width:100%; max-width:540px;">
+        <!-- Loaded by js/captain-portal.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="padding-top:0;">
+    <div class="container" style="max-width:760px;">
+      <div class="section-head">
+        <span class="eyebrow">Captain FAQs</span>
+        <h2>Common questions</h2>
+      </div>
+      <div class="accordion">
+        <div class="accordion-item open">
+          <button class="accordion-q">How much commission does Apna Ride take?<span class="plus">+</span></button>
+          <div class="accordion-a"><p>A flat platform fee applies per ride, shown clearly in your captain app before you accept it — no hidden deductions.</p></div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-q">Do I need a commercial licence?<span class="plus">+</span></button>
+          <div class="accordion-a"><p>Requirements vary by vehicle type and state. Our onboarding team will confirm exactly what's needed for your city during verification.</p></div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-q">Can I drive part-time?<span class="plus">+</span></button>
+          <div class="accordion-a"><p>Yes — there are no minimum hours. Go online whenever you want to accept rides, and offline whenever you don't.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand" style="margin-bottom:14px;">
+          <span class="brand-mark"><img src="images/apna-ride-icon.png" alt="Apna Ride logo"></span>
+          Apna Ride
+        </div>
+        <p>Affordable bike taxis, autos, cabs &amp; parcel delivery — currently live in Patna, Aurangabad, Motihari &amp; Bettiah districts, with all of India coming soon.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="X / Twitter">𝕏</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="about.html#careers">Careers</a></li>
+          <li><a href="contact.html">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="rides.html#bike">Bike Taxi</a></li>
+          <li><a href="rides.html#auto">Auto</a></li>
+          <li><a href="rides.html#cab">Cabs</a></li>
+          <li><a href="rides.html#parcel">Parcel</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Support</h5>
+        <ul>
+          <li><a href="safety.html">Safety centre</a></li>
+          <li><a href="contact.html">Help centre</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>For Captains</h5>
+        <ul>
+          <li><a href="captain.html">Become a captain</a></li>
+          <li><a href="captain.html#earnings">Earnings calculator</a></li>
+          <li><a href="captain.html#faq">Captain FAQs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Apna Ride Technologies Pvt. Ltd. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+        <a href="admin.html">Admin Console</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/bihar-locations.js"></script>
+<script src="js/location-search.js"></script>
+<script src="js/rider-booking.js"></script>
+<script src="js/script.js"></script>
+<script src="js/captain-portal.js"></script>
+</body>
+</html>

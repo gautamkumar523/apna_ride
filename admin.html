@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard — Apna Ride</title>
+<link rel="icon" type="image/png" href="images/apna-ride-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .admin-header {
+    background: var(--ink);
+    color: #fff;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .tabs-nav {
+    display: flex;
+    gap: 12px;
+    border-bottom: 2px solid var(--line);
+    margin-bottom: 24px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+  .admin-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 18px;
+    margin: 28px 0;
+  }
+  .stat-box {
+    background: var(--paper);
+    padding: 22px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+  }
+  .stat-box b {
+    font-size: 2rem;
+    font-family: var(--font-display);
+    color: var(--ink);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .stat-box span {
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+  .tab-btn {
+    padding: 10px 18px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    color: var(--muted);
+  }
+  .tab-btn.active {
+    color: var(--ink);
+    border-bottom-color: var(--vermilion);
+  }
+  .card-table {
+    background: var(--paper);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+    overflow: hidden;
+    margin-bottom: 30px;
+  }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+  .data-table th, .data-table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.92rem;
+  }
+  .data-table th {
+    background: #fbf9f4;
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+  .badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .badge-pending { background: #FFF3D2; color: #8C6A00; }
+  .badge-approved { background: #E4F3EC; color: #0E9D74; }
+  .badge-rejected { background: #FFE9E4; color: #FF5A3C; }
+  .badge-online { background: #E4F3EC; color: #0E9D74; }
+  .badge-offline { background: #EDE8FB; color: #63529E; }
+  .btn-action {
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-approve { background: var(--green); color: #fff; }
+  .btn-reject { background: var(--vermilion); color: #fff; margin-left: 6px; }
+  .login-card {
+    max-width: 420px;
+    margin: 80px auto;
+    background: var(--paper);
+    padding: 36px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--line);
+  }
+  .doc-link {
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 0.8rem;
+    color: #1a73e8;
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+
+<header class="admin-header">
+  <div style="display:flex; align-items:center; gap:12px;">
+    <a href="index.html" class="brand" style="color:#fff; text-decoration:none; display:flex; align-items:center; gap:8px;">
+      <span class="brand-mark" style="background:var(--yellow); border-radius:50%; width:32px; height:32px; display:inline-flex; align-items:center; justify-content:center;">🚕</span>
+      <b style="font-family:var(--font-display); font-size:1.25rem;">Apna Ride</b>
+    </a>
+    <span style="background:rgba(255,255,255,0.12); padding:3px 10px; border-radius:6px; font-size:0.75rem; font-family:var(--font-mono);">ADMIN CONSOLE</span>
+    <a href="index.html" style="color:var(--yellow); font-size:0.85rem; font-weight:600; text-decoration:none; margin-left:10px;">← Main Site</a>
+  </div>
+  <div id="admin-user-info" style="display:none; align-items:center; gap:16px;">
+    <span id="admin-name" style="font-size:0.9rem;"></span>
+    <button id="admin-logout-btn" class="btn btn-outline btn-sm" style="color:#fff; border-color:rgba(255,255,255,0.4); padding:4px 12px;">Log out</button>
+  </div>
+</header>
+
+<main class="container" style="min-height: 80vh;">
+
+  <!-- LOGIN SECTION -->
+  <div id="login-section" class="login-card">
+    <div style="text-align:center; margin-bottom:20px;">
+      <span style="font-size:2.4rem;">🔐</span>
+      <h2 style="margin-top:10px;">Admin Login</h2>
+      <p style="font-size:0.9rem; color:var(--muted);">Access Apna Ride operational management console</p>
+    </div>
+    <form id="admin-login-form">
+      <div class="form-field" style="margin-bottom:16px;">
+        <label for="admin-email">Admin Email</label>
+        <input type="email" id="admin-email" value="admin@apnaride.com" required style="width:100%; padding:10px 14px; border:1px solid var(--line); border-radius:8px;">
+      </div>
+      <div class="form-field" style="margin-bottom:20px;">
+        <label for="admin-password">Password</label>
+        <input type="password" id="admin-password" value="admin123" required style="width:100%; padding:10px 14px; border:1px solid var(--line); border-radius:8px;">
+      </div>
+      <button type="submit" class="btn btn-primary btn-block" style="width:100%; padding:12px; cursor:pointer;">Log In to Dashboard →</button>
+      <p id="login-error" style="color:var(--vermilion); font-size:0.85rem; margin-top:12px; display:none; text-align:center;"></p>
+    </form>
+  </div>
+
+  <!-- DASHBOARD SECTION -->
+  <div id="dashboard-section" style="display:none; padding:24px 0;">
+    
+    <div class="admin-stats-grid">
+      <div class="stat-box">
+        <b id="stat-pending">0</b>
+        <span>Pending KYC Approvals</span>
+      </div>
+      <div class="stat-box">
+        <b id="stat-total-captains">0</b>
+        <span>Approved Captains</span>
+      </div>
+      <div class="stat-box">
+        <b id="stat-active-rides">0</b>
+        <span>Active / In-Progress Rides</span>
+      </div>
+      <div class="stat-box">
+        <b id="stat-total-rides">0</b>
+        <span>Total Rides Recorded</span>
+      </div>
+    </div>
+
+    <!-- TABS NAVIGATION -->
+    <div class="tabs-nav" style="overflow-x:auto; white-space:nowrap;">
+      <button class="tab-btn active" data-tab="pending-tab">Pending Approvals (<span id="pending-count">0</span>)</button>
+      <button class="tab-btn" data-tab="captains-tab">All Captains</button>
+      <button class="tab-btn" data-tab="rides-tab">All Rides</button>
+    </div>
+
+    <!-- TAB 1: PENDING APPROVALS -->
+    <div id="pending-tab" class="tab-content card-table">
+      <div style="overflow-x:auto; -webkit-overflow-scrolling:touch; width:100%;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Name &amp; Mobile</th>
+              <th>Vehicle</th>
+              <th>Plate No.</th>
+              <th>Gender / Preference</th>
+              <th>Documents</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="pending-captains-body">
+            <tr><td colspan="6" style="text-align:center; padding:24px; color:var(--muted);">Loading pending captains...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 2: ALL CAPTAINS -->
+    <div id="captains-tab" class="tab-content card-table" style="display:none;">
+      <div style="overflow-x:auto; -webkit-overflow-scrolling:touch; width:100%;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Name &amp; Contact</th>
+              <th>Vehicle Info</th>
+              <th>Location</th>
+              <th>Verification</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="all-captains-body">
+            <tr><td colspan="5" style="text-align:center; padding:24px; color:var(--muted);">Loading captains...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 3: ALL RIDES -->
+    <div id="rides-tab" class="tab-content card-table" style="display:none;">
+      <div style="overflow-x:auto; -webkit-overflow-scrolling:touch; width:100%;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Rider</th>
+              <th>Captain</th>
+              <th>Route (Pickup → Drop)</th>
+              <th>Vehicle &amp; Fare</th>
+              <th>Status</th>
+              <th>Requested At</th>
+            </tr>
+          </thead>
+          <tbody id="all-rides-body">
+            <tr><td colspan="6" style="text-align:center; padding:24px; color:var(--muted);">Loading rides...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  const API_BASE = "";
+  let adminToken = localStorage.getItem("apna_admin_token");
+
+  const loginSection = document.getElementById("login-section");
+  const dashboardSection = document.getElementById("dashboard-section");
+  const adminUserInfo = document.getElementById("admin-user-info");
+  const adminNameEl = document.getElementById("admin-name");
+  const loginError = document.getElementById("login-error");
+
+  // Check initial login state
+  if (adminToken) {
+    showDashboard();
+  }
+
+  // Handle Login
+  document.getElementById("admin-login-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    loginError.style.display = "none";
+    const email = document.getElementById("admin-email").value.trim();
+    const password = document.getElementById("admin-password").value;
+
+    try {
+      const res = await fetch(`${API_BASE}/admin/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || "Login failed");
+
+      adminToken = data.token;
+      localStorage.setItem("apna_admin_token", adminToken);
+      localStorage.setItem("apna_admin_user", JSON.stringify(data.admin));
+      showDashboard();
+    } catch (err) {
+      loginError.textContent = err.message;
+      loginError.style.display = "block";
+    }
+  });
+
+  // Handle Logout
+  document.getElementById("admin-logout-btn").addEventListener("click", () => {
+    localStorage.removeItem("apna_admin_token");
+    localStorage.removeItem("apna_admin_user");
+    adminToken = null;
+    loginSection.style.display = "block";
+    dashboardSection.style.display = "none";
+    adminUserInfo.style.display = "none";
+  });
+
+  function showDashboard() {
+    loginSection.style.display = "none";
+    dashboardSection.style.display = "block";
+    adminUserInfo.style.display = "flex";
+    const user = JSON.parse(localStorage.getItem("apna_admin_user") || "{}");
+    adminNameEl.textContent = user.name || "Admin";
+
+    loadDashboardStats();
+    loadPendingCaptains();
+    loadAllCaptains();
+    loadAllRides();
+  }
+
+  // Tab switching
+  document.querySelectorAll(".tab-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+      document.querySelectorAll(".tab-content").forEach(c => c.style.display = "none");
+      btn.classList.add("active");
+      const tabId = btn.dataset.tab;
+      document.getElementById(tabId).style.display = "block";
+    });
+  });
+
+  async function loadDashboardStats() {
+    try {
+      const res = await fetch(`${API_BASE}/admin/stats`, {
+        headers: { "Authorization": `Bearer ${adminToken}` }
+      });
+      const data = await res.json();
+      if (data.success && data.stats) {
+        document.getElementById("stat-pending").textContent = data.stats.pendingCaptains;
+        document.getElementById("pending-count").textContent = data.stats.pendingCaptains;
+        document.getElementById("stat-total-captains").textContent = data.stats.approvedCaptains;
+        document.getElementById("stat-active-rides").textContent = data.stats.activeRides;
+        document.getElementById("stat-total-rides").textContent = data.stats.totalRides;
+      }
+    } catch (err) {
+      console.error("Failed to load stats:", err);
+    }
+  }
+
+  async function loadPendingCaptains() {
+    const tbody = document.getElementById("pending-captains-body");
+    try {
+      const res = await fetch(`${API_BASE}/admin/pending-captains`, {
+        headers: { "Authorization": `Bearer ${adminToken}` }
+      });
+      const data = await res.json();
+      const captains = data.captains || [];
+
+      if (captains.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:28px; color:var(--muted);">No pending captain verifications! All up to date. 🎉</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = captains.map(c => `
+        <tr>
+          <td><b>${c.name}</b><br><small style="color:var(--muted)">${c.mobile}</small></td>
+          <td><span style="text-transform:capitalize;">${c.vehicle?.vehicleType || "—"}</span> (${c.vehicle?.color || ""})</td>
+          <td><b>${c.vehicle?.plate || "—"}</b></td>
+          <td>${c.gender || "—"} / <small>${c.ridePreference || "all"}</small></td>
+          <td>
+            ${c.documents?.drivingLicense ? `<a class="doc-link" href="${c.documents.drivingLicense}" target="_blank">DL</a>` : "No DL"}
+            ${c.documents?.vehicleRC ? `<a class="doc-link" href="${c.documents.vehicleRC}" target="_blank">RC</a>` : ""}
+            ${c.documents?.aadhaar ? `<a class="doc-link" href="${c.documents.aadhaar}" target="_blank">Aadhaar</a>` : ""}
+          </td>
+          <td>
+            <button class="btn-action btn-approve" onclick="approveCaptain('${c._id}')">Approve</button>
+            <button class="btn-action btn-reject" onclick="rejectCaptain('${c._id}')">Reject</button>
+          </td>
+        </tr>
+      `).join("");
+    } catch (err) {
+      tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:var(--vermilion);">Failed to load pending captains.</td></tr>`;
+    }
+  }
+
+  async function loadAllCaptains() {
+    const tbody = document.getElementById("all-captains-body");
+    try {
+      const res = await fetch(`${API_BASE}/admin/all-captains`, {
+        headers: { "Authorization": `Bearer ${adminToken}` }
+      });
+      const data = await res.json();
+      const captains = data.captains || [];
+
+      tbody.innerHTML = captains.map(c => `
+        <tr>
+          <td><b>${c.name}</b><br><small>${c.mobile} · ${c.email}</small></td>
+          <td><span style="text-transform:capitalize;">${c.vehicle?.vehicleType || "—"}</span> · ${c.vehicle?.plate || "—"}</td>
+          <td><small>${c.location?.lat ? (c.location.lat.toFixed(4) + ", " + c.location.lng.toFixed(4)) : "No GPS"}</small></td>
+          <td><span class="badge badge-${c.verificationStatus}">${c.verificationStatus}</span></td>
+          <td><span class="badge badge-${c.status}">${c.status}</span></td>
+        </tr>
+      `).join("");
+    } catch (err) {
+      tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:var(--vermilion);">Failed to load captains.</td></tr>`;
+    }
+  }
+
+  async function loadAllRides() {
+    const tbody = document.getElementById("all-rides-body");
+    try {
+      const res = await fetch(`${API_BASE}/admin/all-rides`, {
+        headers: { "Authorization": `Bearer ${adminToken}` }
+      });
+      const data = await res.json();
+      const rides = data.rides || [];
+
+      if (rides.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:24px; color:var(--muted);">No rides requested yet.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = rides.map(r => `
+        <tr>
+          <td><b>${r.user?.name || "Rider"}</b><br><small>${r.user?.mobile || ""}</small></td>
+          <td>${r.captain?.name ? `<b>${r.captain.name}</b><br><small>${r.captain.mobile}</small>` : `<span style="color:var(--muted)">Unassigned</span>`}</td>
+          <td><small><b>P:</b> ${r.pickup?.address?.slice(0, 30)}...<br><b>D:</b> ${r.drop?.address?.slice(0, 30)}...</small></td>
+          <td><b style="text-transform:capitalize;">${r.vehicleType}</b> · ₹${r.finalFare || r.estimatedFare} (${r.distance} km)</td>
+          <td><span class="badge badge-${r.status === 'completed' ? 'approved' : r.status === 'cancelled' ? 'rejected' : 'pending'}">${r.status}</span></td>
+          <td><small>${new Date(r.requestedAt).toLocaleTimeString()}</small></td>
+        </tr>
+      `).join("");
+    } catch (err) {
+      tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:var(--vermilion);">Failed to load rides.</td></tr>`;
+    }
+  }
+
+  window.approveCaptain = async function(id) {
+    if (!confirm("Are you sure you want to approve this captain?")) return;
+    try {
+      const res = await fetch(`${API_BASE}/admin/approve-captain/${id}`, {
+        method: "PATCH",
+        headers: { "Authorization": `Bearer ${adminToken}` }
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message);
+      alert("Captain approved successfully!");
+      loadDashboardStats();
+      loadPendingCaptains();
+      loadAllCaptains();
+    } catch (err) {
+      alert("Error: " + err.message);
+    }
+  };
+
+  window.rejectCaptain = async function(id) {
+    const reason = prompt("Enter rejection reason (e.g., Unclear DL photo, Invalid RC):");
+    if (!reason) return;
+    try {
+      const res = await fetch(`${API_BASE}/admin/reject-captain/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${adminToken}`
+        },
+        body: JSON.stringify({ rejectionReason: reason })
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message);
+      alert("Captain rejected.");
+      loadDashboardStats();
+      loadPendingCaptains();
+      loadAllCaptains();
+    } catch (err) {
+      alert("Error: " + err.message);
+    }
+  };
+</script>
+
+</body>
+</html>
